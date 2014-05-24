@@ -1,4 +1,4 @@
-benevis
+Benevis
 =======
 
 A tool for writing documents
