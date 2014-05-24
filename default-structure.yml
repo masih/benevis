@@ -1,0 +1,33 @@
+title: 
+author: 
+email:
+
+subject: 
+
+organisation: 
+  division: 
+  name: 
+  address: 
+
+keywords: 
+  
+source_dir: md
+charset: UTF-8
+language: en
+
+style:
+  screen: bootstrap
+  print: ieee-conference
+
+structure:
+  cover:
+    - cover.md
+  front:
+    - toc.md
+  content:
+  back:
+
+citation:
+  style: ieee
+  locale: en-GB
+  zotero_id: 931141

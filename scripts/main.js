@@ -45,17 +45,19 @@ require(['jquery', 'jsyaml', 'marked', 'mustache', 'citations', 'config', 'fileS
         saveAs(blob, "printable.html");
     }
 
-    $('head').append('<title>' + config.title + '</title>')
-    $('head').append('<meta name="keywords" content="' + config.keywords + '"/>')
-    $('head').append('<meta name="author" content="' + config.author + '"/>')
-    $('head').append('<meta name="subject" content="' + config.subject + '"/>')
-    $('head').append('<meta name="organisation" content="' + config.organisation.name + '"/>')
+    var $head = $('head');
+    $head.append('<title>' + config.title + '</title>')
+    $head.append('<meta name="keywords" content="' + config.keywords + '"/>')
+    $head.append('<meta name="author" content="' + config.author + '"/>')
+    $head.append('<meta name="subject" content="' + config.subject + '"/>')
+    $head.append('<meta name="organisation" content="' + config.organisation.name + '"/>')
+    $head.append('<meta charset="' + config.charset + '"/>')
 
 
-    Object.keys(config.content).forEach(function (section) {
-        config.content[section].forEach(function (doc) {
+    Object.keys(config.structure).forEach(function (section) {
+        config.structure[section].forEach(function (doc) {
             $.ajax({
-                url: 'md/' + doc,
+                url: config.source_dir + '/' + doc,
                 dataType: 'text',
                 async: false,
                 success: function (result) {
