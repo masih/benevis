@@ -1,18 +1,18 @@
 require.config(
     {
         paths: {
-            jquery: 'lib/jquery.min',
-            jqueryui: 'lib/jquery-ui-1.10.4.custom.min',
-            bootstrap: 'lib/bootstrap.min',
-            jsyaml: 'lib/js-yaml.min',
+            jquery: 'http://code.jquery.com/jquery-1.11.1.min.js',
+            jqueryui: 'https://code.jquery.com/ui/1.10.4/jquery-ui.min.js',
+            bootstrap: 'https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js',
+            jsyaml: 'https://cdn.rawgit.com/nodeca/js-yaml/master/js-yaml.min.js',
             marked: 'lib/marked',
-            tocify: 'lib/jquery.tocify.min',
-            fileSaver: 'lib/FileSaver',
-            mustache: 'lib/mustache',
-            citeproc: 'lib/citeproc',
-            xmldom: 'lib/xmldom',
-            xmle4x: 'lib/xmle4x',
-            linkify: 'lib/jquery.linkify-1.0-min'
+            tocify: 'https://cdn.rawgit.com/gfranko/jquery.tocify.js/master/src/javascripts/jquery.tocify.min.js',
+            fileSaver: 'https://cdn.rawgit.com/eligrey/FileSaver.js/master/FileSaver.js',
+            mustache: 'https://cdn.rawgit.com/janl/mustache.js/master/mustache.js',
+            citeproc: 'https://bitbucket.org/fbennett/citeproc-js/raw/f25084004b3eb3f439f3b62b0e521b885d6f2155/citeproc.js',
+            xmldom: 'https://bitbucket.org/fbennett/citeproc-js/raw/f25084004b3eb3f439f3b62b0e521b885d6f2155/xmldom.js',
+            xmle4x: 'https://bitbucket.org/fbennett/citeproc-js/raw/f25084004b3eb3f439f3b62b0e521b885d6f2155/xmle4x.js',
+            linkify: 'https://cdn.rawgit.com/uudashr/jquery-linkify/master/jquery.linkify.min.js'
         },
         shim: {
             bootstrap: { deps: ['jquery'] },

@@ -1,0 +1,239 @@
+
+html {
+    font-family: 'Times New Roman';
+    font-size: 10pt;
+    text-align: justify;
+    hyphens: auto;
+    hyphenate-before: 2;
+    hyphenate-after: 2;
+    prince-hyphenate-lines: 1;
+
+}
+
+#content {
+    column-fill: auto;
+    columns: 2;
+}
+
+.content h1, .back h1 {
+    text-align: center;
+    margin-top: 8pt;
+    margin-bottom: 4pt;
+    font-size: 10pt;
+    font-weight: normal;
+    font-variant: small-caps;
+    hyphens: none;
+}
+
+.front * {
+    font-size: 9pt;
+    line-height: 1;
+    font-weight: bold;
+    display: inline;
+}
+
+.front h1 {
+    margin: 0;
+    padding: 0;
+    margin-left: 10pt;
+    font-style: italic;
+}
+
+.front h1:after {
+    content: '—';
+}
+
+html, body {
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    hyphens: none;
+    font-size: 10pt;
+    margin-bottom: 1pt;
+}
+
+p {
+    margin: 0;
+    padding-bottom: 0.3pt;
+    text-indent: 0.38cm;
+}
+
+p:first-of-type {
+    text-indent: 0;
+}
+
+#introduction_md p:first-of-type:first-letter {
+    font-size: 28pt;
+    float: left;
+    display: block;
+    line-height: 24pt;
+    margin: 0;
+    padding: 0;
+    margin-right: 5px;
+}
+
+.cover {
+    columns: 1;
+    width: 100%;
+    height: 100px;
+    display: block;
+    position: relative;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+.cover h1 {
+    font-size: 24pt;
+    font-weight: normal;
+    margin-bottom: 6pt;
+}
+
+.cover p {
+    margin-top: 20px;
+    font-size: 11pt;
+    line-height: 1.5;
+}
+
+@page {
+    width: 216mm;
+    height: 279mm;
+    margin: 1.78cm 1.65cm;
+
+    @bottom-center {
+        font-size: 0.8em;
+        padding-bottom: 2em;
+        content: counter(page);
+    }
+    @top-center {
+        font-size: 10pt;
+        content: '14th IEEE International Conference on Peer-to-Peer Computing';
+        border-bottom: 1px solid black;
+        margin-top: 35px;
+        margin-bottom: 10px;
+    }
+}
+
+#content {
+    counter-reset: leve_1_counter;
+}
+
+.content {
+
+}
+
+.content h2 {
+
+    font-weight: normal;
+    font-style: italic;
+    margin-top: 6pt;
+    margin-bottom: 3pt;
+}
+
+.content h3 {
+    font-weight: normal;
+    font-style: italic;
+    margin-top: 3pt;
+    margin-bottom: 0;
+}
+
+.content h1 {
+    counter-reset: leve_2_counter;
+}
+
+.content h1:before {
+    counter-increment: leve_1_counter;
+    content: counter(leve_1_counter, upper-roman) '.  ';
+    font-variant: normal;
+}
+
+.content h2 {
+    counter-reset: leve_3_counter;
+}
+
+.content h2:before {
+    counter-increment: leve_2_counter;
+    content: counter(leve_2_counter, upper-latin) '.  ';
+
+}
+
+.content h3:before {
+    counter-increment: leve_3_counter;
+    content: counter(leve_3_counter) ')  ';
+}
+
+.content img {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+}
+
+#toc_md {
+    display: none;
+}
+
+div.csl-entry{
+    font-size: 9pt;
+    margin: 0;
+    padding: 0;
+}
+
+div.csl-left-margin {
+    display: table-cell;
+    width: 0.63cm;
+}
+
+
+div.csl-right-inline {
+    padding: 0;
+    display: table-cell;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+figure{
+    margin-top: 4pt;
+    margin-bottom: 15pt;
+}
+figure figcaption{
+    font-size: 8pt;
+    padding: 0;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin-bottom: 6pt;
+}
+table caption{
+    font-variant: small-caps;
+    font-size: 8pt;
+    padding: 0;
+    margin-top: 12pt;
+    margin-bottom: 6pt;
+}
+
+td, th {
+    border: 1px solid #8f8f8f;
+    font-size: 8pt;
+    margin: 0;
+    padding: 0 4px;
+}
+ul,ol{
+    margin-left: 20pt;
+}
+
+#acknowledgement_md {
+    float: column-bottom;
+    font-size: 8pt;
+    margin-top: 15pt;
+}
+
+h6{
+    display: none;
+}

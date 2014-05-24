@@ -1,0 +1,142 @@
+@import url('https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
+@import url('https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css');
+@import url('https://cdn.rawgit.com/gfranko/jquery.tocify.js/master/src/stylesheets/jquery.tocify.css');
+
+html {
+    counter-reset: level-1;
+
+}
+
+#acknowledgements_md, #dedication_md, #declarations_md {
+    display: none;
+}
+
+.tocify {
+    width: 22%;
+    top: 30px;
+    left: 0;
+}
+
+.tocify h1 {
+    display: none;
+}
+
+.tocify-focus {
+    background: #0088cc;
+}
+
+.tocify-focus a {
+    color: #ffffff;
+}
+
+table {
+    max-width: 75%;
+    margin: 0 auto;
+}
+
+.cover {
+    background: #e6e6e6;
+    padding: 30px;
+}
+
+.cover h1 {
+    font-size: 36pt;
+}
+
+.cover p {
+    font-size: 14pt;
+}
+
+div.csl-left-margin {
+    width: 5%;
+    margin-left: 2%;
+    margin-right: 2%;
+    display: inline;
+}
+
+div.csl-right-inline {
+    width: 93%;
+    display: inline;
+}
+
+div.csl-bib-body {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+}
+
+div.csl-entry {
+
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.numbering {
+    margin-right: 5pt;
+}
+
+.content img {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+}
+
+#acknowledgement_md {
+    display: none;
+}
+
+div:target {
+    background-color: #ffa;
+}
+
+
+figure figcaption{
+    font-size: 90%;
+    text-align: center;
+}
+
+/* Comments Style*/
+
+h6 {
+    position: relative;
+    width: 60%;
+    padding: 5px;
+    background: #FFFACD;
+    border: orange solid 2px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 85%;
+    font-family: sans-serif;
+    font-weight: normal;
+}
+
+h6:after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 27px;
+    border-style: solid;
+    border-width: 0 10px 10px;
+    border-color: #FFFACD transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+}
+
+h6:before {
+    content: "";
+    position: absolute;
+    top: -13px;
+    left: 26px;
+    border-style: solid;
+    border-width: 0 11px 11px;
+    border-color: orange transparent;
+    display: block;
+    width: 0;
+    z-index: 0;
+}
+
+
