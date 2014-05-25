@@ -1,6 +1,6 @@
 @import url('https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
 @import url('https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css');
-@import url('https://raw.githubusercontent.com/gfranko/jquery.tocify.js/master/src/stylesheets/jquery.tocify.css');
+@import url('https://cdn.rawgit.com/gfranko/jquery.tocify.js/master/src/stylesheets/jquery.tocify.css');
 
 html {
     counter-reset: level-1;
