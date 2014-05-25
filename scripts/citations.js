@@ -30,7 +30,7 @@ define(['jquery', 'config', 'citeproc', 'linkify'], function ($, config) {
         retrieveLocale: function (lang) {
             var locale;
             $.ajax({
-                url: 'https://cdn.rawgit.com/citation-style-language/locales/master/locales-' + config.citation.locale + '.xml',
+                url: 'https://raw.githubusercontent.com/citation-style-language/locales/master/locales-' + config.citation.locale + '.xml',
                 dataType: 'text',
                 async: false,
                 success: function (result) {
@@ -51,7 +51,7 @@ define(['jquery', 'config', 'citeproc', 'linkify'], function ($, config) {
 
     var csl;
     $.ajax({
-        url: 'https://cdn.rawgit.com/citation-style-language/styles/master/' + config.citation.style + '.csl',
+        url: 'https://raw.githubusercontent.com/citation-style-language/styles/master/' + config.citation.style + '.csl',
         dataType: 'text',
         async: false,
         success: function (result) {

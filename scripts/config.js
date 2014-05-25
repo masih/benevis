@@ -18,7 +18,7 @@ define(['jquery', 'jsyaml'], function ($, yaml) {
 
 
     var config = getYAML("structure.yml");
-    var default_config = getYAML("http://localhost:63342/benevis/default-structure.yml");
+    var default_config = getYAML("https://raw.githubusercontent.com/masih/benevis/master/default-structure.yml");
     console.log(config);
     console.log(default_config);
     var cconfig = $.extend({}, default_config, config);
