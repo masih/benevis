@@ -24,7 +24,7 @@ structure:
     - cover.md
   front:
     - toc.md
-  content:
+  main:
   back:
 
 citation:

@@ -1,7 +1,7 @@
 require.config(
     {
         paths: {
-            jquery: 'http://code.jquery.com/jquery-1.11.1.min',
+            jquery: 'https://code.jquery.com/jquery-1.11.1.min',
             jqueryui: 'https://code.jquery.com/ui/1.10.4/jquery-ui.min',
             bootstrap: 'https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min',
             jsyaml: 'https://cdn.rawgit.com/nodeca/js-yaml/master/js-yaml.min',
@@ -73,10 +73,10 @@ require(['jquery', 'jsyaml', 'marked', 'mustache', 'citations', 'config', 'fileS
         })
     })
 
-    console.log($(".content").text().split(/\s+/).length)
+    console.log($(".main").text().split(/\s+/).length)
 
     var level_1 = level_2 = level_3 = level_4 = level_5 = 0;
-    $(".content").find("h1,h2,h3,h4,h5").each(function (index) {
+    $(".main").find("h1,h2,h3,h4,h5").each(function (index) {
         var tag = this.tagName.toLowerCase();
         var $this = $(this);
         $this.html(function (index, content) {
