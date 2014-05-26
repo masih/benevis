@@ -19,6 +19,8 @@ style:
   screen: bootstrap
   print: ieee-conference
 
+
+
 structure:
   cover:
     - cover.md

@@ -52,6 +52,7 @@ require(['jquery', 'jsyaml', 'marked', 'mustache', 'citations', 'config', 'fileS
     $head.append('<meta name="subject" content="' + config.subject + '"/>')
     $head.append('<meta name="organisation" content="' + config.organisation.name + '"/>')
     $head.append('<meta charset="' + config.charset + '"/>')
+    $head.attr('lang', config.language);
 
 
     Object.keys(config.structure).forEach(function (section) {
@@ -67,7 +68,7 @@ require(['jquery', 'jsyaml', 'marked', 'mustache', 'citations', 'config', 'fileS
                     $('#content').append(container);
                 },
                 error: function (e) {
-                    console.log("failed to load " + doc);
+                    console.log("failed to load " + doc, e);
                 }
             });
         })
