@@ -3,10 +3,15 @@ define(['jquery', 'config', 'citeproc', 'linkify'], function ($, config) {
     var citations = {};
 
 
-    function loadByAlias(alias) {
+    function getCiteKeyFromNote(note) {
 
+        var matches = /^citekey: *(.+) *$/gm.exec(note);
+        return matches[1];
+    }
+
+    function fetch(start) {
         $.ajax({
-            url: 'https://api.zotero.org/users/' + config.citation.zotero_id + '/items?tag=alias:' + alias.join(' || alias:') + '&format=csljson&limit=100',
+            url: 'https://api.zotero.org/users/' + config.citation.zotero_id + '/items?format=csljson&limit=99&start=' + start,
             beforeSend: function (request) {
                 request.setRequestHeader("Zotero-API-Version", "2");
             },
@@ -16,8 +21,15 @@ define(['jquery', 'config', 'citeproc', 'linkify'], function ($, config) {
 
                 result.items.forEach(function (item, index) {
 
-                    citations[alias[index]] = item;
-                    citations[alias[index]].id = alias[index]
+                    var citekey = getCiteKeyFromNote(item.note);
+
+                    if (citekey != null) {
+                        citations[citekey] = item;
+                        citations[citekey].id = citekey;
+                    } else {
+                        console.log("no citekey was found for " + item);
+                        citations[item.id] = item;
+                    }
                 })
             },
             error: function (e) {
@@ -26,11 +38,36 @@ define(['jquery', 'config', 'citeproc', 'linkify'], function ($, config) {
         });
     }
 
+    function loadZoteroLibrary() {
+
+        var response;
+        $.ajax({
+            url: 'https://api.zotero.org/users/' + config.citation.zotero_id + '/items?format=keys',
+            dataType: 'text',
+            async: false,
+            success: function (result) {
+                response = result.trim().split('\n');
+            },
+            error: function (e) {
+                console.log("failed to load " + this.url, e);
+            }
+        });
+
+        var to_be_fetched = response.length;
+        var fetch_count = 0;
+        while (to_be_fetched > 0) {
+
+            fetch(fetch_count * 99);
+            fetch_count++;
+            to_be_fetched -= 99;
+        }
+    }
+
     var system = {
         retrieveLocale: function (lang) {
             var locale;
             $.ajax({
-                url: 'https://cdn.rawgit.com/citation-style-language/locales/master/locales-' + config.citation.locale + '.xml',
+                url: 'https://cdn.rawgit.com/citation-style-language/locales/master/locales-' + lang + '.xml',
                 dataType: 'text',
                 async: false,
                 success: function (result) {
@@ -44,9 +81,13 @@ define(['jquery', 'config', 'citeproc', 'linkify'], function ($, config) {
         },
 
         retrieveItem: function (id) {
-            return citations[id] == undefined ? null : citations[id];
+            if (citations[id] == undefined) {
+                console.log("failed to find citation with key " + id);
+                return null;
+            } else {
+                return citations[id];
+            }
         }
-
     };
 
     var csl;
@@ -64,32 +105,9 @@ define(['jquery', 'config', 'citeproc', 'linkify'], function ($, config) {
     });
 
     var processor = new CSL.Engine(system, csl, config.citation.locale);
-    var itemIDs = [];
-    var response;
-    $.ajax({
-        url: 'https://api.zotero.org/users/' + config.citation.zotero_id + '/tags?q=alias',
-        dataType: 'text',
-        async: false,
-        success: function (result) {
-            response = result;
-        },
-        error: function (e) {
-            console.log("failed to load " + this.url, e);
-        }
-    });
-    var xmlDoc = $.parseXML(response);
-    var $xml = $(xmlDoc);
-    var $title = $xml.find("feed>entry>title");
-    var ffs = [];
-    for (var i = 0; i < $title.length; i++) {
-        var title = $title[i].innerHTML;
-        if ((token = /alias:(.+)/.exec(title))) {
-            var alias = token[1];
-            itemIDs.push(alias);
-        }
-    }
-    loadByAlias(itemIDs)
-    processor.updateItems(itemIDs);
+    loadZoteroLibrary();
+    var citekeys = Object.keys(citations);
+    processor.updateItems(citekeys);
 
     return {
         database: citations,

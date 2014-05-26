@@ -4,15 +4,15 @@ require.config(
             jquery: 'https://code.jquery.com/jquery-1.11.1.min',
             jqueryui: 'https://code.jquery.com/ui/1.10.4/jquery-ui.min',
             bootstrap: 'https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min',
-            jsyaml: 'https://raw.githubusercontent.com/nodeca/js-yaml/master/js-yaml.min',
+            jsyaml: 'https://rawgit.com/nodeca/js-yaml/master/js-yaml.min',
             marked: 'lib/marked',
             tocify: 'https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.7.0/jquery.tocify.min',
-            fileSaver: 'https://raw.githubusercontent.com/eligrey/FileSaver.js/master/FileSaver',
-            mustache: 'https://raw.githubusercontent.com/janl/mustache.js/master/mustache',
-            citeproc: 'https://bitbucket.org/fbennett/citeproc-js/raw/f25084004b3eb3f439f3b62b0e521b885d6f2155/citeproc',
-            xmldom: 'https://bitbucket.org/fbennett/citeproc-js/raw/f25084004b3eb3f439f3b62b0e521b885d6f2155/xmldom',
-            xmle4x: 'https://bitbucket.org/fbennett/citeproc-js/raw/f25084004b3eb3f439f3b62b0e521b885d6f2155/xmle4x',
-            linkify: 'https://raw.githubusercontent.com/uudashr/jquery-linkify/master/jquery.linkify.min'
+            fileSaver: 'https://rawgit.com/eligrey/FileSaver.js/master/FileSaver',
+            mustache: 'https://rawgit.com/janl/mustache.js/master/mustache',
+            citeproc: 'lib/citeproc',
+            xmldom: 'lib/xmldom',
+            xmle4x: 'lib/xmle4x',
+            linkify: 'https://rawgit.com/uudashr/jquery-linkify/master/jquery.linkify.min'
         },
         shim: {
             bootstrap: { deps: ['jquery'] },
