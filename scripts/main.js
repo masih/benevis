@@ -73,7 +73,7 @@ require(['jquery', 'jsyaml', 'marked', 'mustache', 'citations', 'config', 'fileS
         })
     })
 
-    console.log($(".main").text().split(/\s+/).length)
+    console.log('word-count: ' + $(".main").text().split(/\s+/).length)
 
     var level_1 = level_2 = level_3 = level_4 = level_5 = 0;
     $(".main").find("h1,h2,h3,h4,h5").each(function (index) {
