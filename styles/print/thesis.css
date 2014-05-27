@@ -1,0 +1,174 @@
+@import "../../fonts/Computer%20Modern/all.css";
+
+html {
+    font-family: 'Computer Modern Serif';
+    font-size: 10pt;
+    text-align: justify;
+    hyphens: auto;
+    hyphenate-before: 4;
+    hyphenate-after: 4;
+    prince-hyphenate-lines: 1;
+}
+
+code {
+    font-family: 'Computer Modern Typewriter Light';
+}
+
+html, body {
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    hyphens: none;
+}
+
+p + p {
+    text-indent: 10pt
+}
+
+.numbering.level_1 {
+    display: block;
+    font-size: 128pt;
+    padding: 32pt;
+    font-weight: normal;
+    text-align: right;
+}
+
+.content_md {
+    page-break-after: always;
+}
+
+#dedication_md {
+    margin: 200pt 80pt;
+}
+
+@page {
+    size: A4;
+    margin: 32mm;
+
+    @bottom-center {
+        font-size: 0.8em;
+        padding-bottom: 2em;
+        content: counter(page);
+    }
+}
+
+.cover {
+    page: cover;
+    counter-reset: page;
+    margin-top: 32em;
+}
+
+.cover p {
+    text-align: center;
+    font-weight: normal;
+    font-size: 12pt;
+}
+
+.cover h1 {
+    font-size: 15pt;
+    text-align: center;
+    font-weight: normal;
+}
+
+.front h1 {
+    text-align: center;
+    font-size: 11.74988pt;
+    padding-top: 64pt;
+}
+
+@page cover {
+    @bottom-center {
+        content: "";
+    }
+}
+
+.front {
+    page: front;
+}
+
+#introduction_md {
+    counter-reset: page 1;
+}
+
+@page front {
+    @bottom-center {
+        content: counter(page, lower-roman);
+    }
+}
+
+#toc_md ul li {
+    width: 400pt;
+}
+
+#toc_md ul ul li {
+    width: 390pt;
+}
+
+#toc_md ul ul ul li {
+    width: 370pt;
+}
+
+#toc_md a:after {
+    content: leader(" . ") target-counter(attr(href), page);
+}
+
+#toc_md .tocify-header > li > a:after {
+    content: leader("  ") target-counter(attr(href), page);
+}
+
+#toc_md ul {
+    margin-left: 0;
+    list-style: none;
+}
+
+#toc_md ul ul {
+    margin-left: 10pt;
+}
+
+#toc_md ul ul ul {
+    margin-left: 20pt;
+}
+
+.tocify-header {
+    margin-bottom: 15pt;
+}
+
+.tocify-header > li > a {
+    font-weight: bold;
+}
+
+#declarations_md td {
+    width: 50%;
+    padding: 10px;
+    border: none;
+}
+
+div.csl-left-margin {
+    width: 5%;
+    margin-left: 2%;
+    margin-right: 2%;
+    display: inline;
+}
+
+div.csl-right-inline {
+    width: 93%;
+    display: inline;
+}
+
+div.csl-bib-body {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+}
+
+div.csl-entry {
+
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
