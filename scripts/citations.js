@@ -1,7 +1,6 @@
 define(['jquery', 'config', 'citeproc', 'linkify'], function ($, config) {
 
-    var citations = {};
-
+    var citations = null;
 
     function getCiteKeyFromNote(note) {
 
@@ -40,26 +39,40 @@ define(['jquery', 'config', 'citeproc', 'linkify'], function ($, config) {
 
     function loadZoteroLibrary() {
 
-        var response;
-        $.ajax({
-            url: 'https://api.zotero.org/users/' + config.citation.zotero_id + '/items?format=keys',
-            dataType: 'text',
-            async: false,
-            success: function (result) {
-                response = result.trim().split('\n');
-            },
-            error: function (e) {
-                console.log("failed to load " + this.url, e);
+        var local_storage_key = 'citations_' + config.citation.zotero_id;
+        var storage_supported = typeof(Storage) != "undefined";
+        if (storage_supported) {
+            citations = JSON.parse(localStorage.getItem(local_storage_key));
+        }
+
+        if (citations == null) {
+            console.log('fetching citation database from zotero');
+            citations = {};
+            var response;
+            $.ajax({
+                url: 'https://api.zotero.org/users/' + config.citation.zotero_id + '/items?format=keys',
+                dataType: 'text',
+                async: false,
+                success: function (result) {
+                    response = result.trim().split('\n');
+                },
+                error: function (e) {
+                    console.log("failed to load " + this.url, e);
+                }
+            });
+
+            var to_be_fetched = response.length;
+            var fetch_count = 0;
+            while (to_be_fetched > 0) {
+
+                fetch(fetch_count * 99);
+                fetch_count++;
+                to_be_fetched -= 99;
             }
-        });
 
-        var to_be_fetched = response.length;
-        var fetch_count = 0;
-        while (to_be_fetched > 0) {
-
-            fetch(fetch_count * 99);
-            fetch_count++;
-            to_be_fetched -= 99;
+            if (storage_supported) {
+                localStorage.setItem(local_storage_key, JSON.stringify(citations));
+            }
         }
     }
 
