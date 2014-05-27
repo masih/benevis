@@ -11,8 +11,8 @@ define(['jquery', 'config', 'citeproc', 'linkify'], function ($, config) {
     function fetch(start) {
         $.ajax({
             url: 'https://api.zotero.org/users/' + config.citation.zotero_id + '/items?format=csljson&limit=99&start=' + start,
-            beforeSend: function (request) {
-                request.setRequestHeader("Zotero-API-Version", "2");
+            headers: {
+                "Zotero-API-Version": "2"
             },
             dataType: 'json',
             async: false,
