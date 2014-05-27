@@ -1,4 +1,6 @@
 # Enhancements
+- [ ] Add the ability to change style in structure.yml
+- [ ] Add hook to enable/disable javascript section numbering from structure.yml 
 - [ ] Load scripts using github [API](https://developer.github.com/v3/): 
     - [ ] fetch from [REST API](https://api.github.com/repos/masih/benevis/contents/scripts/main.js) using header `Accept:application/vnd.github.v3.raw`
 
