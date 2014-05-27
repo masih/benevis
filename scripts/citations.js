@@ -51,6 +51,9 @@ define(['jquery', 'config', 'citeproc', 'linkify'], function ($, config) {
             var response;
             $.ajax({
                 url: 'https://api.zotero.org/users/' + config.citation.zotero_id + '/items?format=keys',
+                headers: {
+                    "Zotero-API-Version": "2"
+                },
                 dataType: 'text',
                 async: false,
                 success: function (result) {
@@ -80,7 +83,10 @@ define(['jquery', 'config', 'citeproc', 'linkify'], function ($, config) {
         retrieveLocale: function (lang) {
             var locale;
             $.ajax({
-                url: 'https://cdn.rawgit.com/citation-style-language/locales/master/locales-' + lang + '.xml',
+                url: 'https://api.github.com/repos/citation-style-language/locales/contents/locales-' + lang + '.xml',
+                headers: {
+                    "Accept":"application/vnd.github.v3.raw"
+                },
                 dataType: 'text',
                 async: false,
                 success: function (result) {
@@ -105,7 +111,10 @@ define(['jquery', 'config', 'citeproc', 'linkify'], function ($, config) {
 
     var csl;
     $.ajax({
-        url: 'https://cdn.rawgit.com/citation-style-language/styles/master/' + config.citation.style + '.csl',
+        url: 'https://api.github.com/repos/citation-style-language/styles/contents/' + config.citation.style + '.csl',
+        headers: {
+            "Accept":"application/vnd.github.v3.raw"
+        },
         dataType: 'text',
         async: false,
         success: function (result) {
