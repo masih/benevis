@@ -4,7 +4,7 @@ require.config(
             jquery: 'https://code.jquery.com/jquery-1.11.1.min',
             jqueryui: 'https://code.jquery.com/ui/1.10.4/jquery-ui.min',
             bootstrap: 'https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min',
-            jsyaml: 'https://cdn.rawgit.com/nodeca/js-yaml/master/js-yaml.min',
+            jsyaml: 'https://rawgit.com/nodeca/js-yaml/master/js-yaml.min',
             marked: 'lib/marked',
             tocify: 'https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.7.0/jquery.tocify.min',
             fileSaver: 'https://cdn.jsdelivr.net/filesaver.js/0.1/FileSaver.min',
@@ -12,7 +12,7 @@ require.config(
             citeproc: 'lib/citeproc',
             xmldom: 'lib/xmldom',
             xmle4x: 'lib/xmle4x',
-            linkify: 'https://cdn.rawgit.com/uudashr/jquery-linkify/master/jquery.linkify.min'
+            linkify: 'https://rawgit.com/uudashr/jquery-linkify/master/jquery.linkify.min'
         },
         shim: {
             bootstrap: { deps: ['jquery'] },
