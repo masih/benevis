@@ -3,3 +3,5 @@
     - [ ] fetch from [REST API](https://api.github.com/repos/masih/benevis/contents/scripts/main.js) using header `Accept:application/vnd.github.v3.raw`
 
 - [ ] Add the ability to save files on github using [API libraries](https://developer.github.com/libraries/)
+- [ ] Add support for url-based JSON citation database
+- [ ] Add support for different citation database formats
