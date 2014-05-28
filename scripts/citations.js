@@ -32,7 +32,7 @@ define(['jquery', 'config', 'citeproc', 'linkify'], function ($, config) {
                 })
             },
             error: function (e) {
-                console.log("failed to contact zotero.org to fetch citation:" + alias, e);
+                console.log("failed to contact zotero.org to fetch citation starting at " + start , e);
             }
         });
     }
