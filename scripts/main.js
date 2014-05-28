@@ -1,5 +1,7 @@
 require.config(
     {
+        waitSeconds: 15,
+        xhtml:true,
         paths: {
             jquery: 'https://code.jquery.com/jquery-1.11.1.min',
             jqueryui: 'https://code.jquery.com/ui/1.10.4/jquery-ui.min',
