@@ -1,4 +1,4 @@
 Benevis
 =======
 
-A tool for writing documents
+A tool for writing academic documents in markdown
