@@ -11,7 +11,7 @@ require.config(
             tocify: 'https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.7.0/jquery.tocify.min',
             fileSaver: 'https://cdn.jsdelivr.net/filesaver.js/0.1/FileSaver.min',
             mustache: 'https://cdn.jsdelivr.net/mustache.js/0.8.1/mustache.min',
-            citeproc: 'https://bitbucket.org/fbennett/citeproc-js/raw/tip/citeproc.js',
+            citeproc: 'https://bitbucket.org/fbennett/citeproc-js/raw/tip/citeproc',
             xmldom: 'lib/xmldom',
             xmle4x: 'lib/xmle4x',
             linkify: 'https://rawgit.com/uudashr/jquery-linkify/master/jquery.linkify.min'
