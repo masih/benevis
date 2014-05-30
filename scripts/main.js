@@ -8,7 +8,7 @@ require.config(
             bootstrap: 'https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min',
             jsyaml: 'https://rawgit.com/nodeca/js-yaml/master/js-yaml.min',
             marked: 'lib/marked',
-            tocify: 'https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.7.0/jquery.tocify.min',
+            tocify: 'https://rawgit.com/gfranko/jquery.tocify.js/master/src/javascripts/jquery.tocify.min',
             fileSaver: 'https://cdn.jsdelivr.net/filesaver.js/0.1/FileSaver.min',
             mustache: 'https://cdn.jsdelivr.net/mustache.js/0.8.1/mustache.min',
             citeproc: 'lib/citeproc',
