@@ -32,7 +32,7 @@ require(['jquery', 'jsyaml', 'marked', 'mustache', 'citations', 'config', 'fileS
         return doc.replace(/(\.| )/g, '_');
     }
 
-    var saveAsPrintableHtml = function () {
+    function fixTOCIdentifiers() {
 
         var source = $("html");
         source.find(".tocify-item a").each(function () {
@@ -43,6 +43,11 @@ require(['jquery', 'jsyaml', 'marked', 'mustache', 'citations', 'config', 'fileS
             var tthis = $(this);
             tthis.attr("id", tthis.data("unique"))
         })
+    }
+
+    function saveAsPrintableHtml() {
+
+        var source = $("html");
         var blob = new Blob(['<html>' + source.html() + '</html>'], {type: "text/html;charset=utf-8"});
         saveAs(blob, "printable.html");
     }
@@ -106,19 +111,9 @@ require(['jquery', 'jsyaml', 'marked', 'mustache', 'citations', 'config', 'fileS
             return content;
         })
     })
-
     $("#toc_md").tocify({ context: "#content", theme: "bootstrap3", scrollHistory: false, ignoreSelector: "#acknowledgements_md>,#dedication_md>,#declarations_md>,#toc_md h1,.cover h1"});
     $("table").addClass("table table-bordered table-hover table-condensed");
 
-    var source = $("html");
-    source.find(".tocify-item a").each(function () {
-        var tthis = $(this);
-        tthis.attr("href", '#' + tthis.parent().data("unique"))
-    })
-    source.find("div[data-unique]").each(function () {
-        var tthis = $(this);
-        tthis.attr("id", tthis.data("unique"))
-    })
-
+    fixTOCIdentifiers();
 //    saveAsPrintableHtml();
 });
