@@ -18,7 +18,7 @@ define(['jquery', 'jsyaml'], function ($, yaml) {
 
 
     var config = getYAML("structure.yml");
-    var default_config = getYAML("https://cdn.rawgit.com/masih/benevis/master/default-structure.yml");
+    var default_config = getYAML("https://masih.github.io/benevis/default-structure.yml");
     var extended_config = $.extend({}, default_config, config);
     return extended_config;
 });
