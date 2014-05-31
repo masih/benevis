@@ -1,7 +1,7 @@
 require.config(
     {
         waitSeconds: 15,
-        xhtml:true,
+        xhtml: true,
         paths: {
             jquery: 'https://code.jquery.com/jquery-1.11.1.min',
             jqueryui: 'https://code.jquery.com/ui/1.10.4/jquery-ui.min',
@@ -109,6 +109,16 @@ require(['jquery', 'jsyaml', 'marked', 'mustache', 'citations', 'config', 'fileS
 
     $("#toc_md").tocify({ context: "#content", theme: "bootstrap3", scrollHistory: false, ignoreSelector: "#acknowledgements_md>,#dedication_md>,#declarations_md>,#toc_md h1,.cover h1"});
     $("table").addClass("table table-bordered table-hover table-condensed");
+
+    var source = $("html");
+    source.find(".tocify-item a").each(function () {
+        var tthis = $(this);
+        tthis.attr("href", '#' + tthis.parent().data("unique"))
+    })
+    source.find("div[data-unique]").each(function () {
+        var tthis = $(this);
+        tthis.attr("id", tthis.data("unique"))
+    })
 
 //    saveAsPrintableHtml();
 });

@@ -4,10 +4,12 @@ html {
     font-family: 'Computer Modern Serif';
     font-size: 10pt;
     text-align: justify;
+    font-kerning: auto;
     hyphens: auto;
     hyphenate-before: 4;
     hyphenate-after: 4;
     prince-hyphenate-lines: 1;
+    
 }
 
 code {
@@ -20,18 +22,40 @@ html, body {
 
 h1, h2, h3, h4, h5, h6 {
     hyphens: none;
+    text-align: left;
 }
 
 p + p {
     text-indent: 10pt
 }
 
-.numbering.level_1 {
+#introduction_md p:first-of-type:first-letter {
+    font-size: 450%;
+    float: left;
     display: block;
-    font-size: 128pt;
-    padding: 32pt;
+    line-height: 70%;
+    padding: 0;
+    margin: 5px 5px 0 0;
+}
+
+
+.numbering.level_1 {
+    width: 10pt;
+    font-size: 24pt;
+    display: block;
+    padding-top: 50pt;
+    margin: 25pt auto;
     font-weight: normal;
-    text-align: right;
+    text-align: center;
+    /*border-bottom: 1px solid #000000;*/
+    font-family: 'Computer Modern Medium';
+}
+.main h1{
+    font-family: 'Computer Modern Medium';
+    font-weight: normal;
+    text-align: center;
+    margin: 0 0 50pt;
+    
 }
 
 .content_md {
@@ -57,6 +81,7 @@ p + p {
     page: cover;
     counter-reset: page;
     margin-top: 32em;
+    font-family: 'Computer Modern Medium';
 }
 
 .cover p {
@@ -66,7 +91,7 @@ p + p {
 }
 
 .cover h1 {
-    font-size: 15pt;
+    font-size: 18pt;
     text-align: center;
     font-weight: normal;
 }
@@ -144,29 +169,21 @@ p + p {
     border: none;
 }
 
+div.csl-entry {
+    padding: 0;
+    margin: 0 0 10pt;
+}
+
 div.csl-left-margin {
-    width: 5%;
-    margin-left: 2%;
-    margin-right: 2%;
-    display: inline;
+    display: table-cell;
+    width: 0.63cm;
 }
 
 div.csl-right-inline {
-    width: 93%;
-    display: inline;
+    padding: 0;
+    display: table-cell;
 }
 
-div.csl-bib-body {
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    margin-bottom: 1em;
-}
-
-div.csl-entry {
-
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-}
 
 a {
     text-decoration: none;
