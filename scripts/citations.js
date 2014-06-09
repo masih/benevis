@@ -5,7 +5,7 @@ define(['jquery', 'config', 'citeproc', 'linkify'], function ($, config) {
     function getCiteKeyFromNote(note) {
 
         var matches = /^citekey: *(.+) *$/gm.exec(note);
-        return matches[1];
+        return matches == null ? null : matches[1];
     }
 
     function fetch(start) {
