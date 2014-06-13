@@ -29,14 +29,14 @@ p + p {
     text-indent: 10pt
 }
 
-#introduction_md p:first-of-type:first-letter {
-    font-size: 450%;
-    float: left;
-    display: block;
-    line-height: 70%;
-    padding: 0;
-    margin: 5px 5px 0 0;
-}
+/*#introduction_md p:first-of-type:first-letter {*/
+    /*font-size: 450%;*/
+    /*float: left;*/
+    /*display: block;*/
+    /*line-height: 70%;*/
+    /*padding: 0;*/
+    /*margin: 5px 5px 0 0;*/
+/*}*/
 
 
 .numbering.level_1 {

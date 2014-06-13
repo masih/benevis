@@ -135,7 +135,12 @@ define(['jquery', 'config', 'citeproc', 'linkify'], function ($, config) {
         database: citations,
         processor: processor,
         cite: function (cite_object) {
-            return this.processor.appendCitationCluster(cite_object, true)[0][1];
+            
+            //TODO investigate why sometimes a single call returns the previous label.
+            var label = this.processor.appendCitationCluster(cite_object, true)[0][1];
+            label = this.processor.appendCitationCluster(cite_object, true)[0][1];
+            label = this.processor.appendCitationCluster(cite_object, true)[0][1];
+            return  label;
         },
         renderBibliography: function () {
 
