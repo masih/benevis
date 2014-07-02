@@ -496,7 +496,7 @@
         tag: /^<!--[\s\S]*?-->|^<\/?\w+(?:"[^"]*"|'[^']*'|[^'">])*?>/,
         link: /^!?\[(inside)\]\(href\)/,
         reflink: /^!?\[(inside)\]\s*\[([^\]]*)\]/,
-        citelink: /^!?(\[(.+?) (.+?)\])? *\[#(.+?)\]/,
+        citelink: /^!?(\[(book|chapter|column|figure|folio|issue|line|note|opus|page|paragraph|part|section|sub verbo|verse|volume) ([^\]]*)\])? *\[#([^\]]*)\]/,
         nolink: /^!?\[((?:\[[^\]]*\]|[^\[\]])*)\]/,
         strong: /^__([\s\S]+?)__(?!_)|^\*\*([\s\S]+?)\*\*(?!\*)/,
         em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
