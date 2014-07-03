@@ -104,8 +104,6 @@ h6 {
     padding: 5px;
     background: #FFFACD;
     border: orange solid 2px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
     border-radius: 3px;
     font-size: 85%;
     font-family: sans-serif;
@@ -138,4 +136,35 @@ h6:before {
     z-index: 0;
 }
 
+.critique{
+    background: #FFFACD;
+    position: relative;
+}
 
+.critique:hover:after{
+
+    bottom: 26px;
+    left: 1px;
+    content: attr(data-critic) ': ' attr(data-comment);
+    padding: 5px 15px;
+    position: absolute;
+    width: 220px;
+    background: #FFFACD;
+    border: orange solid 2px;
+    border-radius: 3px;
+    font-size: 85%;
+    font-family: sans-serif;
+    font-weight: normal;
+
+}
+
+.critique:hover:before{
+
+    border-width: 6px 6px 0 6px;
+    bottom: 20px;
+    content: "";
+    left: 5px;
+    position: absolute;
+    border-style: solid;
+    border-color: orange transparent;
+}

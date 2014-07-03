@@ -497,6 +497,7 @@
         link: /^!?\[(inside)\]\(href\)/,
         reflink: /^!?\[(inside)\]\s*\[([^\]]*)\]/,
         citelink: /^!?(\[(book|chapter|column|figure|folio|issue|line|note|opus|page|paragraph|part|section|sub verbo|verse|volume) ([^\]]*)\])? *\[#([^\]]*)\]/,
+        critique: /^!?\[([^\]]*)\] *\[\?([^\:]*)\: *([^\]]*)\]/,
         nolink: /^!?\[((?:\[[^\]]*\]|[^\[\]])*)\]/,
         strong: /^__([\s\S]+?)__(?!_)|^\*\*([\s\S]+?)\*\*(?!\*)/,
         em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
@@ -685,6 +686,22 @@
                     src = cap[0].substring(1) + src;
                 }
 
+                continue;
+            }
+
+            // critique
+            if ((cap = this.rules.critique.exec(src))) {
+                src = src.substring(cap[0].length);
+
+                // g1 target
+                // g2 author
+                // g3 comment
+
+                var target = cap[1];
+                var critic = cap[2];
+                var comment = cap[3];
+
+                out += this.renderer.critique(target, critic, comment);
                 continue;
             }
 
@@ -988,6 +1005,11 @@
         out += '>' + text + '</a>';
         return out;
     };
+
+    Renderer.prototype.critique = function (target, critic, comment) {
+
+        return '<span class="critique" data-critic="' + critic + '" data-comment="' + comment + '">' + target + '</span>';
+    }
 
     Renderer.prototype.bibliography = function () {
         var citations = require('citations');
