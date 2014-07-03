@@ -1008,7 +1008,7 @@
 
     Renderer.prototype.critique = function (target, critic, comment) {
 
-        return '<span class="critique" data-critic="' + critic + '" data-comment="' + comment + '">' + target + '</span>';
+        return '<span class="critique" data-critic="' + critic + '" data-comment="' + comment + '" >' + target + '</span>';
     }
 
     Renderer.prototype.bibliography = function () {

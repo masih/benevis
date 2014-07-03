@@ -136,8 +136,9 @@ h6:before {
     z-index: 0;
 }
 
+
 .critique{
-    background: #FFFACD;
+    background: yellow;
     position: relative;
 }
 

@@ -17,7 +17,7 @@ require.config(
         },
         shim: {
             bootstrap: { deps: ['jquery'] },
-            jqueryui: { deps: ['jquery'] },
+            powertip: { deps: ['jquery'] },
             linkify: { deps: ['jquery'] },
             tocify: { deps: ['jquery', 'jqueryui'] },
             citeproc: { deps: ['xmldom'] }
@@ -113,8 +113,6 @@ require(['jquery', 'jsyaml', 'marked', 'mustache', 'citations', 'config', 'fileS
     $("#toc_md").tocify({ context: "#content", theme: "bootstrap3", scrollHistory: false, ignoreSelector: "#acknowledgements_md>,#dedication_md>,#declarations_md>,#toc_md h1,.cover h1"});
     $("table").addClass("table table-bordered table-hover table-condensed");
 
-    $('.critique_comment')
-    
     fixTOCIdentifiers();
 //    saveAsPrintableHtml();
 });
