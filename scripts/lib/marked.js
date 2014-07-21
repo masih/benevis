@@ -23,6 +23,7 @@
         list: /^( *)(bull) [\s\S]+?(?:hr|def|\n{2,}(?! )(?!\1bull )\n*|\s*$)/,
         html: /^ *(?:comment|closed|closing) *(?:\n{2,}|\s*$)/,
         def: /^ *\[([^\]]+)\]: *<?([^\s>]+)>?(?: +["(]([^\n]+)[")])? *(?:\n+|$)/,
+        def_list: /^((\n*((.+\n)+): +.+[\n]{2}(:? +.+[\n]{2})*)+)/,
         bibliography: /^ *\[\#\_(bibliography)\] *(?:\n+|$)/,
         task: noop,
         table: noop,
@@ -278,6 +279,37 @@
 
                 this.tokens.push({
                     type: 'blockquote_end'
+                });
+
+                continue;
+            }
+
+            // def_list
+            if (cap = this.rules.def_list.exec(src)) {
+                // Top-level should never reach here.
+                src = src.substring(cap[0].length);
+
+                var matches;
+                var ddd = cap[0];
+                var def_list_items = [];
+                while (matches = /^\n*((.+\n)+)(: +.+[\n]{2}(:? +.+[\n]{2})*)/g.exec(ddd)) {
+
+                    var titles = matches[1].trim().split(/\n/g);
+                    var definitions = matches[3].trim().replace(/^: */, '').split(/\n\n:? */g);
+
+                    def_list_items.push({
+                        type: 'def_list_item',
+                        titles: titles,
+                        definitions: definitions
+                    });
+
+                    ddd = ddd.substring(matches[0].length);
+                }
+
+
+                this.tokens.push({
+                    type: 'def_list',
+                    items: def_list_items
                 });
 
                 continue;
@@ -904,6 +936,23 @@
         return '<blockquote>\n' + quote + '</blockquote>\n';
     };
 
+    Renderer.prototype.def_list = function (items) {
+
+        var body = '';
+
+        items.forEach(function (item) {
+            item.titles.forEach(function (title) {
+                body += '<dt>' + title + '</dt>\n';
+            });
+
+            item.definitions.forEach(function (definition) {
+                body += '<dd>' + definition + '</dd>\n';
+            });
+        }, this);
+        
+        return '<dl>\n' + body + '</dl>\n';
+    };
+    
     Renderer.prototype.html = function (html) {
         return html;
     };
@@ -1186,6 +1235,11 @@
                 }
 
                 return this.renderer.blockquote(body);
+            }
+            case 'def_list':
+            {
+
+                return this.renderer.def_list(this.token.items);
             }
             case 'list_start':
             {

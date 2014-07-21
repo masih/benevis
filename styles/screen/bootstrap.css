@@ -169,3 +169,14 @@ h6:before {
     border-style: solid;
     border-color: orange transparent;
 }
+
+
+dt{
+    margin-top: 1em;
+}
+
+dd{
+    margin-left: 5em;
+    margin-bottom: 2em;
+    
+}
