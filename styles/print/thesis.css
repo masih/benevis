@@ -64,6 +64,7 @@ p + p {
 
 #dedication_md {
     margin: 200pt 80pt;
+    text-align: center;
 }
 
 @page {
