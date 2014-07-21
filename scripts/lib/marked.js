@@ -953,7 +953,7 @@
             });
         }, this);
 
-        return '<dl>\n' + body + '</dl>\n';
+        return '<dl id="glossary">\n' + body + '</dl>\n';
     };
 
     Renderer.prototype.html = function (html) {
