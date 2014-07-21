@@ -168,4 +168,5 @@ h6:before {
     position: absolute;
     border-style: solid;
     border-color: orange transparent;
+    z-index: 999;
 }
