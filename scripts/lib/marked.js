@@ -942,17 +942,20 @@
 
         items.forEach(function (item) {
             item.titles.forEach(function (title) {
-                body += '<dt>' + title + '</dt>\n';
+
+                var id = 'glossary/' + title.toLowerCase().replace(' ', '_');
+
+                body += '<dt id="' + id + '">' + title + '</dt>\n';
             });
 
             item.definitions.forEach(function (definition) {
                 body += '<dd>' + definition + '</dd>\n';
             });
         }, this);
-        
+
         return '<dl>\n' + body + '</dl>\n';
     };
-    
+
     Renderer.prototype.html = function (html) {
         return html;
     };
