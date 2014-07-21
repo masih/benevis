@@ -156,7 +156,7 @@ h6:before {
     font-size: 85%;
     font-family: sans-serif;
     font-weight: normal;
-
+    z-index: 999;
 }
 
 .critique:hover:before{
@@ -168,5 +168,4 @@ h6:before {
     position: absolute;
     border-style: solid;
     border-color: orange transparent;
-    z-index: 999;
 }
