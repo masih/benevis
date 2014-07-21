@@ -953,6 +953,10 @@
             });
         }, this);
 
+        // TODO sort by key
+        // TODO group by initial letter of the key
+        // TODO automatically generate See XXX for multiple key entries.
+        
         return '<dl id="glossary">\n' + body + '</dl>\n';
     };
 
