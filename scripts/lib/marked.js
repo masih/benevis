@@ -532,7 +532,7 @@
         tag: /^<!--[\s\S]*?-->|^<\/?\w+(?:"[^"]*"|'[^']*'|[^'">])*?>/,
         link: /^!?\[(inside)\]\(href\)/,
         reflink: /^!?\[(inside)\]\s*\[([^\]]*)\]/,
-        citelink: /^!?(\[(book|chapter|column|figure|folio|issue|line|note|opus|page|paragraph|part|section|sub verbo|verse|volume) ([^\]]*)\])? *\[#([^\]]*)\]/gm,
+        citelink: /^!?(\[(book|chapter|column|figure|folio|issue|line|note|opus|page|paragraph|part|section|sub verbo|verse|volume) ([^\]]*)\])? *\n*\[#([^\]]*)\]/,
         critique: /^!?\[([^\]]*)\] *\[\?([^\:]*)\: *([^\]]*)\]/,
         nolink: /^!?\[((?:\[[^\]]*\]|[^\[\]])*)\]/,
         strong: /^__([\s\S]+?)__(?!_)|^\*\*([\s\S]+?)\*\*(?!\*)/,
