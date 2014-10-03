@@ -292,6 +292,7 @@
                 var matches;
                 var ddd = cap[0];
                 var def_list_items = [];
+
                 while (matches = /^\n*((.+\n)+)(: +.+[\n]{2}(:? +.+[\n]{2})*)/g.exec(ddd)) {
 
                     var titles = matches[1].trim().split(/\n/g);
@@ -306,6 +307,9 @@
                     ddd = ddd.substring(matches[0].length);
                 }
 
+                // TODO sort by key
+                // TODO group by initial letter of the key
+                // TODO automatically generate See XXX for multiple key entries.
 
                 this.tokens.push({
                     type: 'def_list',
@@ -528,7 +532,7 @@
         tag: /^<!--[\s\S]*?-->|^<\/?\w+(?:"[^"]*"|'[^']*'|[^'">])*?>/,
         link: /^!?\[(inside)\]\(href\)/,
         reflink: /^!?\[(inside)\]\s*\[([^\]]*)\]/,
-        citelink: /^!?(\[(book|chapter|column|figure|folio|issue|line|note|opus|page|paragraph|part|section|sub verbo|verse|volume) ([^\]]*)\])? *\[#([^\]]*)\]/,
+        citelink: /^!?(\[(book|chapter|column|figure|folio|issue|line|note|opus|page|paragraph|part|section|sub verbo|verse|volume) ([^\]]*)\])? *\[#([^\]]*)\]/gm,
         critique: /^!?\[([^\]]*)\] *\[\?([^\:]*)\: *([^\]]*)\]/,
         nolink: /^!?\[((?:\[[^\]]*\]|[^\[\]])*)\]/,
         strong: /^__([\s\S]+?)__(?!_)|^\*\*([\s\S]+?)\*\*(?!\*)/,
@@ -944,6 +948,18 @@
             item.titles.forEach(function (title) {
 
                 var id = 'glossary/' + title.toLowerCase().replace(' ', '_');
+                body += '<dt id="' + id + '">' + title + '</dt>\n';
+            });
+
+            item.definitions.forEach(function (definition) {
+                body += '<dd>' + definition + '</dd>\n';
+            });
+        }, this);
+        
+        items.forEach(function (item) {
+            item.titles.forEach(function (title) {
+
+                var id = 'glossary/' + title.toLowerCase().replace(' ', '_');
 
                 body += '<dt id="' + id + '">' + title + '</dt>\n';
             });
@@ -953,10 +969,6 @@
             });
         }, this);
 
-        // TODO sort by key
-        // TODO group by initial letter of the key
-        // TODO automatically generate See XXX for multiple key entries.
-        
         return '<dl id="glossary">\n' + body + '</dl>\n';
     };
 
