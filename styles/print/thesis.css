@@ -29,6 +29,12 @@ p + p {
     text-indent: 10pt
 }
 
+
+blockquote {
+   font-style: italic;
+    quotes: "\201C""\201D""\2018""\2019";
+}
+
 /*#introduction_md p:first-of-type:first-letter {*/
     /*font-size: 450%;*/
     /*float: left;*/
