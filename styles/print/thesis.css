@@ -34,14 +34,7 @@ blockquote {
    font-style: italic;
 }
 
-/*#introduction_md p:first-of-type:first-letter {*/
-    /*font-size: 450%;*/
-    /*float: left;*/
-    /*display: block;*/
-    /*line-height: 70%;*/
-    /*padding: 0;*/
-    /*margin: 5px 5px 0 0;*/
-/*}*/
+
 
 
 .numbering.level_1 {
@@ -170,12 +163,6 @@ blockquote {
 
 .tocify-header > li > a {
     font-weight: bold;
-}
-
-#declarations_md td {
-    width: 50%;
-    padding: 10px;
-    border: none;
 }
 
 div.csl-entry {
