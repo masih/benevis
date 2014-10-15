@@ -77,6 +77,8 @@ blockquote {
     margin: 32mm;
 
     @bottom-center {
+        font-family: 'Computer Modern Medium';
+        font-weight: normal;
         font-size: 0.8em;
         padding-bottom: 2em;
         content: counter(page);
