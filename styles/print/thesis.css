@@ -82,6 +82,7 @@ blockquote {
         font-size: 0.8em;
         padding-bottom: 2em;
         content: counter(page);
+        text-transform: uppercase;
     }
 }
 
