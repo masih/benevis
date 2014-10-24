@@ -112,7 +112,7 @@ require(['jquery', 'jsyaml', 'marked', 'mustache', 'citations', 'config', 'fileS
     })
     $("#toc_md").tocify({ context: "#content", theme: "bootstrap3", scrollHistory: false, ignoreSelector: "#acknowledgements_md>,#dedication_md>,#declarations_md>,#toc_md h1,.cover h1"});
     $("table").addClass("table table-bordered table-hover table-condensed");
-
+    $("p:empty").remove();
     fixTOCIdentifiers();
 //    saveAsPrintableHtml();
 });
