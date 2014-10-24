@@ -82,7 +82,6 @@ blockquote {
 .cover {
     page: cover;
     counter-reset: page;
-    margin-top: 32em;
     font-family: 'Computer Modern Medium';
 }
 
