@@ -955,7 +955,7 @@
                 body += '<dd>' + definition + '</dd>\n';
             });
         }, this);
-        
+
         items.forEach(function (item) {
             item.titles.forEach(function (title) {
 
@@ -1003,7 +1003,12 @@
     };
 
     Renderer.prototype.paragraph = function (text) {
-        return '<p>' + text + '</p>\n';
+        if (text.trim().length > 0) {
+            return '<p>' + text + '</p>\n';
+        }else{
+            return '\n';
+        }
+
     };
 
     Renderer.prototype.table = function (header, body, caption) {
