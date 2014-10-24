@@ -1477,7 +1477,7 @@
     marked.defaults = {
         gfm: true,
         tables: true,
-        breaks: true,
+        breaks: false,
         pedantic: true,
         sanitize: true,
         smartLists: true,
