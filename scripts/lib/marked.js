@@ -1487,7 +1487,9 @@
         sanitize: false,
         smartLists: true,
         silent: false,
-        highlight: null,
+        highlight: function (code) {
+            return hljs..highlightAuto(code).value;
+        },
         langPrefix: 'lang-',
         smartypants: true,
         headerPrefix: '',
