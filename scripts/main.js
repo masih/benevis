@@ -82,15 +82,15 @@ require(['jquery', 'jsyaml', 'marked', 'mustache', 'citations', 'config', 'fileS
 
     console.log('word-count: ' + $(".main").text().split(/\s+/).length)
 
-    var level_1 = level_2 = level_3 = level_4 = level_5 = 0;
-    $(".main").find("h1,h2,h3,h4,h5").each(function (index) {
+    var level_1 = level_2 = level_3 = level_4 = level_5 = figcaption = tablecaption = 0;
+    $(".main").find("h1,h2,h3,h4,h5,figcaption,table>caption").each(function (index) {
         var tag = this.tagName.toLowerCase();
         var $this = $(this);
         $this.html(function (index, content) {
 
             if (tag == 'h1') {
                 content = '<span class="numbering level_1">' + ++level_1 + '</span>\n' + content;
-                level_2 = level_3 = level_4 = level_5 = 0;
+                level_2 = level_3 = level_4 = level_5 = figcaption = tablecaption = 0;
             }
             if (tag == 'h2') {
                 content = '<span class="numbering level_2">' + level_1 + "." + ++level_2 + '</span>\n' + content;
@@ -106,6 +106,14 @@ require(['jquery', 'jsyaml', 'marked', 'mustache', 'citations', 'config', 'fileS
             }
             if (tag == 'h5') {
                 content = '<span class="numbering level_5">' + level_1 + "." + level_2 + "." + level_3 + "." + level_4 + "." + ++level_5 + '</span>\n' + content;
+            }
+
+            if (tag == 'figcaption') {
+                content = '<span class="figure_caption">Figure ' + level_1 + "." + ++figcaption + '</span>' + content;
+            }
+
+            if (tag == 'caption') {
+                content = '<span class="figure_caption">Table ' + level_1 + "." + ++tablecaption + '</span>' + content;
             }
             return content;
         })
