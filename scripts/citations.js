@@ -41,9 +41,9 @@ define(['jquery', 'config', 'citeproc', 'linkify'], function ($, config) {
 
         var local_storage_key = 'citations_' + config.citation.zotero_id;
         var storage_supported = typeof(Storage) != "undefined";
-        if (storage_supported) {
-            citations = JSON.parse(localStorage.getItem(local_storage_key));
-        }
+//        if (storage_supported) {
+//            citations = JSON.parse(localStorage.getItem(local_storage_key));
+//        }
 
         if (citations == null) {
             console.log('fetching citation database from zotero');
