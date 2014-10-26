@@ -108,13 +108,13 @@ require(['jquery', 'jsyaml', 'marked', 'mustache', 'citations', 'config', 'fileS
                 content = '<span class="numbering level_5">' + level_1 + "." + level_2 + "." + level_3 + "." + level_4 + "." + ++level_5 + '</span>\n' + content;
             }
 
-            if (tag == 'figcaption') {
-                content = '<span class="figure_caption">Figure ' + level_1 + "." + ++figcaption + '</span>' + content;
-            }
-
-            if (tag == 'caption') {
-                content = '<span class="figure_caption">Table ' + level_1 + "." + ++tablecaption + '</span>' + content;
-            }
+//            if (tag == 'figcaption') {
+//                content = '<span class="figure_caption">Figure ' + level_1 + "." + ++figcaption + '</span>' + content;
+//            }
+//
+//            if (tag == 'caption') {
+//                content = '<span class="figure_caption">Table ' + level_1 + "." + ++tablecaption + '</span>' + content;
+//            }
             return content;
         })
     })
