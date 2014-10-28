@@ -9,7 +9,7 @@ html {
     hyphenate-before: 4;
     hyphenate-after: 4;
     prince-hyphenate-lines: 1;
-    
+
 }
 
 code {
@@ -29,13 +29,9 @@ p + p {
     text-indent: 10pt
 }
 
-
 blockquote {
-   font-style: italic;
+    font-style: italic;
 }
-
-
-
 
 .numbering.level_1 {
     width: 10pt;
@@ -48,12 +44,13 @@ blockquote {
     /*border-bottom: 1px solid #000000;*/
     font-family: 'Computer Modern Medium';
 }
-.main h1{
+
+.main h1 {
     font-family: 'Computer Modern Medium';
     font-weight: normal;
     text-align: center;
     margin: 0 0 50pt;
-    
+
 }
 
 .content_md {
@@ -178,7 +175,6 @@ div.csl-right-inline {
     padding: 0;
     display: table-cell;
 }
-
 
 a {
     text-decoration: none;
