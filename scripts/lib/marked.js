@@ -1099,7 +1099,7 @@
 
     Renderer.prototype.footnote = function (content) {
 
-        return '<span class="footnote">' + content + '</span>';
+        return '<span class="footnote" data-footnote="'+content+'"></span>';
     }
 
     Renderer.prototype.bibliography = function () {
