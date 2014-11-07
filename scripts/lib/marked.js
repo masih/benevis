@@ -534,6 +534,7 @@
         reflink: /^!?\[(inside)\]\s*\[([^\]]*)\]/,
         citelink: /^!?(\[(book|chapter|column|figure|folio|issue|line|note|opus|page|paragraph|part|section|sub verbo|verse|volume) ([^\]]*)\])? *\n*\[#([^\]]*)\]/,
         critique: /^!?\[([^\]]*)\] *\[\?([^\:]*)\: *([^\]]*)\]/,
+        footnote: /^!?\[\^([^\]]*)\]/,
         nolink: /^!?\[((?:\[[^\]]*\]|[^\[\]])*)\]/,
         strong: /^__([\s\S]+?)__(?!_)|^\*\*([\s\S]+?)\*\*(?!\*)/,
         em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
@@ -738,6 +739,18 @@
                 var comment = cap[3];
 
                 out += this.renderer.critique(target, critic, comment);
+                continue;
+            }
+
+            // footnote
+            if ((cap = this.rules.footnote.exec(src))) {
+                src = src.substring(cap[0].length);
+
+                // g1 footnote content
+
+                var content = cap[1];
+
+                out += this.renderer.footnote(content);
                 continue;
             }
 
@@ -1082,6 +1095,11 @@
     Renderer.prototype.critique = function (target, critic, comment) {
 
         return '<span class="critique" data-critic="' + critic + '" data-comment="' + comment + '" >' + target + '</span>';
+    }
+
+    Renderer.prototype.footnote = function (content) {
+
+        return '<span class="footnote">' + content + '</span>';
     }
 
     Renderer.prototype.bibliography = function () {
